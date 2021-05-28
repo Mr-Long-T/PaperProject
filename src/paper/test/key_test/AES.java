@@ -3,15 +3,10 @@ package paper.test.key_test;
 import paper.test.keyGen.AESAlgorithm;
 import paper.test.tool.Prop;
 import paper.test.tool.PropUtil;
+import sun.misc.BASE64Encoder;
 
-import javax.crypto.BadPaddingException;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
-import java.nio.charset.StandardCharsets;
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
 
 public class AES {
@@ -26,8 +21,9 @@ public class AES {
         byte[] strEnc = null;
         String strDec = "";
         try {
+            BASE64Encoder encoder = new BASE64Encoder();
             strEnc = AESAlgorithm.encrypt(str, SK);
-            System.out.println("加密后：" + strEnc);
+            System.out.println("加密后：" + encoder.encode(strEnc));
 
             strDec = AESAlgorithm.decrypt(strEnc,SK);
             System.out.println("解密后：" + strDec);

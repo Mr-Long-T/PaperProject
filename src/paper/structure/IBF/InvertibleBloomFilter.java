@@ -1,5 +1,6 @@
-package paper.structure.InvertibleBloomFilter;
+package paper.structure.IBF;
 
+import java.io.Serializable;
 import java.nio.charset.Charset;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
